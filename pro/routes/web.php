@@ -13,12 +13,14 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Types\Relations\Role;
 use App\Http\Controllers\Auth\LoginController;
 use App\Mail\JobPosted;
+use App\Models\Job;
 use Illuminate\Support\Facades\Mail;
 use Pest\Plugins\Only;
 
 Route::get('test',function(){
+    $job = Job::first(); // Replace 1 with the actual job ID or logic to get the job
     Mail::to('prosenjit1156@gmail.com')->send(
-        new JobPosted()
+        new JobPosted($job)
     );
     return 'Done';
 });
