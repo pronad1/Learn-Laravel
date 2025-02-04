@@ -12,10 +12,21 @@ use App\Jobs\TranslateJob;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Types\Relations\Role;
 use App\Http\Controllers\Auth\LoginController;
+use App\Mail\JobPosted;
+use Illuminate\Support\Facades\Mail;
 use Pest\Plugins\Only;
+
+Route::get('test',function(){
+    Mail::to('prosenjit1156@gmail.com')->send(
+        new JobPosted()
+    );
+    return 'Done';
+});
+
 
 Route::view('/', 'home');
 Route::view('/contact', 'contact');
+
 
 // Route::resource('jobs', JobController::class)->Only(['index','show']);
 // Route::resource('jobs', JobController::class)->except(['index','show'])->middleware('auth');
