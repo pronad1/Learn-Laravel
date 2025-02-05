@@ -18,14 +18,17 @@ use Illuminate\Support\Facades\Mail;
 use Pest\Plugins\Only;
 
 Route::get('test',function(){
-    // $job = Job::first(); // Replace 1 with the actual job ID or logic to get the job
+    $job = Job::first(); // Replace 1 with the actual job ID or logic to get the job
+    
     // Mail::to('prosenjit1156@gmail.com')->send(
     //     new JobPosted($job)
     // );
-    dispatch(function(){
-        logger('Hello from the queue');
-    })->delay(5);
+    // dispatch(function(){
+    //     logger('Hello from the queue');
+    // })->delay(5);
 
+
+    TranslateJob::dispatch($job);
     return 'Done';
 });
 
