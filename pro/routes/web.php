@@ -24,8 +24,8 @@ Route::get('test',function(){
     // );
     dispatch(function(){
         logger('Hello from the queue');
-    });
-    
+    })->delay(5);
+
     return 'Done';
 });
 
