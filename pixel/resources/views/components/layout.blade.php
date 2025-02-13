@@ -11,7 +11,7 @@
     <nav> 
         <div>
             <a href="">
-                <img src="{{ Vite::asset('resources/images/logo.svg') }}" alt="">
+            <img src="{{ asset('images/logo.svg') }}" alt="Logo">
             </a>
         </div>
         <div>links</div>
